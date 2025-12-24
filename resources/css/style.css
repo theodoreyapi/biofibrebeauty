@@ -1,0 +1,133 @@
+:root {
+    --gold: #c29d59;
+    --dark-brown: #5c4d3d;
+    --bg-cream: #f9f7f4;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top left, #fffcf5 0%, #f3efe6 100%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-brown) !important;
+}
+.logo span { color: var(--gold); }
+.nav-link { font-weight: 500; color: #333 !important; margin: 0 15px; }
+
+/* Typographie */
+.title-main {
+    font-family: 'Playfair Display', serif;
+    color: #222;
+    line-height: 1.1;
+}
+.text-gold { color: var(--gold); }
+
+/* Badges et Boutons */
+.badge-exclusive {
+    display: inline-block;
+    background: #fdf2d9;
+    color: var(--gold);
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-dark-custom {
+    background-color: var(--dark-brown);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.btn-dark-custom:hover {
+    background-color: #44382c;
+    transform: translateY(-3px);
+}
+
+.btn-outline-custom {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 12px 30px;
+    border-radius: 12px;
+    color: #333;
+}
+
+/* Mise en page des images (Grid complexe) */
+.pos-relative {
+    position: relative;
+    height: 500px;
+}
+
+.image-grid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-img {
+    position: absolute;
+    width: 320px;
+    height: 250px;
+    top: 0;
+    right: 20%;
+    z-index: 2;
+}
+
+.secondary-img {
+    position: absolute;
+    width: 300px;
+    height: 220px;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Cartes flottantes */
+.card-float {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    width: 220px;
+    z-index: 3;
+}
+
+.review-card {
+    bottom: 50px;
+    left: 10%;
+}
+
+.quality-card {
+    top: 30px;
+    right: 0;
+}
+
+.quality-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+/* Stats */
+.stats-container h3 {
+    color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .pos-relative { height: 600px; margin-top: 50px; }
+    .main-img { width: 250px; right: 10%; }
+    .secondary-img { width: 220px; }
+}
