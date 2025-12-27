@@ -23,7 +23,7 @@
                         <div class="contact-item">
                             <h5><i class="bi bi-envelope"></i> Email</h5>
                             <small>Écrivez-nous, nous répondons sous 24h</small>
-                            <a href="mailto:contact@biofibrebeauty.com">contact@BioFibreBeauty.com</a>
+                            <a href="mailto:contact@DiamondCurly.com">contact@DiamondCurly.com</a>
                         </div>
 
                         <div class="contact-item">
@@ -38,7 +38,7 @@
                     <div class="info-card">
                         <div class="contact-item">
                             <h5><i class="bi bi-geo-alt"></i> Adresse</h5>
-                            <p>Mon adresse Schlosshofstrasse<br>42 8400 Winterthour</p>
+                            <p>Schlosshofstrasse 42 8400 Winterthour</p>
                         </div>
 
                         <div class="contact-item">

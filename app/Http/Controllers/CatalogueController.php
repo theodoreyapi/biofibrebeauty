@@ -13,17 +13,34 @@ class CatalogueController extends Controller
      */
     public function index()
     {
-        $produits = DB::table('produits')
+        $query = DB::table('produits')
             ->join('categories', 'produits.categorie_id', '=', 'categories.id_categorie')
             ->join('longueurs', 'produits.longueur_id', '=', 'longueurs.id_longueur')
-            ->select('produits.*', 'categories.nom_categorie', 'longueurs.valeur_longueur')
+            ->select('produits.*', 'categories.nom_categorie', 'longueurs.valeur_longueur');
+
+        if (request()->filled('categorie')) {
+            $query->where('produits.categorie_id', request('categorie'));
+        }
+
+        if (request()->filled('longueur')) {
+            $query->where('produits.longueur_id', request('longueur'));
+        }
+
+        $produits = $query
             ->orderBy('produits.created_at', 'desc')
             ->get();
 
-            $cumulProduits = count($produits);
+        $cumulProduits = $produits->count();
 
-            $categories = DB::table('categories')->get();
-            $longueurs = DB::table('longueurs')->get();
+        $categories = DB::table('categories')->get();
+        $longueurs = DB::table('longueurs')->get();
+
+        return view('catalogue', compact(
+            'produits',
+            'cumulProduits',
+            'categories',
+            'longueurs'
+        ));
 
         return view('catalogue', compact('produits', 'cumulProduits', 'categories', 'longueurs'));
     }

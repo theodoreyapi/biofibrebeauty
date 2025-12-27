@@ -910,6 +910,24 @@ body {
     font-weight: 600;
 }
 
+.status-red {
+    background: rgb(245, 147, 147);
+    color: var(--gold);
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.status-success {
+    background: rgb(145, 249, 145);
+    color: var(--gold);
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
 .order-content {
     display: flex;
     justify-content: space-between;

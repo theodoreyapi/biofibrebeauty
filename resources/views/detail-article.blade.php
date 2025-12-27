@@ -28,9 +28,19 @@
                     <h1 class="product-title-detail">{{ $produits->nom_produit }}</h1>
                     <div class="product-price-detail">{{ number_format($produits->prix_produit, 0, ',', ' ') }} F CFA</div>
 
-                    <button class="btn-add-large mb-4">
-                        <i class="bi bi-bag-plus"></i> Ajouter au panier
-                    </button>
+                    @if ($produits->stock_produit > 0)
+                        <button class="btn-add-large mb-4"
+                            onclick="addToCart(
+                                            '{{ $produits->id_produit }}',
+                                            '{{ $produits->nom_produit }}',
+                                            '{{ $produits->prix_produit }}',
+                                            '{{ $produits->image_produit }}'
+                                        )">
+                            <i class="bi bi-bag-plus"></i> Ajouter au panier
+                        </button>
+                    @else
+                        <button disabled class="btn btn-secondary btn-add-large mb-4">Rupture de stock</button>
+                    @endif
 
                     <div class="product-description-box">
                         <h5 class="fw-bold mb-2">Description</h5>
@@ -53,15 +63,17 @@
                         <p class="small text-muted mb-4">Contactez-nous pour plus d'informations ou pour passer
                             commande.</p>
 
-                        <button class="btn-whatsapp-full">
+                        <a class="btn-whatsapp-full"
+                            href="https://wa.me/41798376166?text={{ urlencode('Bonjour, je souhaite avoir des informations sur la mèche: ' . $produits->nom_produit . ', Catégorie: ' . $produits->nom_categorie . ', Longueur: ' . $produits->valeur_longueur . ', Couleur: ' . $produits->couleur_produit) }}"
+                            target="_blank">
                             <i class="bi bi-whatsapp"></i> Contacter sur WhatsApp
-                        </button>
+                        </a>
 
                         <div class="contact-options-grid">
-                            <a href="#" class="btn-contact-outline">
+                            <a href="tel:+41798376166" class="btn-contact-outline">
                                 <i class="bi bi-telephone"></i> Appeler
                             </a>
-                            <a href="#" class="btn-contact-outline">
+                            <a href="mailto:contact@DiamondCurly.com" class="btn-contact-outline">
                                 <i class="bi bi-envelope"></i> Email
                             </a>
                         </div>

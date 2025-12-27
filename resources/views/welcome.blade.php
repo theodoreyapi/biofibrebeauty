@@ -11,7 +11,7 @@
                         L'élégance <br> <span class="text-gold">au naturel</span>
                     </h1>
                     <p class="lead text-muted my-4">
-                        Sublimez votre beauté avec notre collection premium de perruques. Qualité exceptionnelle,
+                        Sublimez votre beauté avec notre collection premium de mèches. Qualité exceptionnelle,
                         confort absolu.
                     </p>
                     <div class="d-flex gap-3 mb-5">
@@ -113,7 +113,7 @@
                 <span class="badge-trending mb-2">Best-sellers</span>
                 <h2 class="title-main display-5 mb-3">Nos Produits Vedettes</h2>
                 <p class="text-muted mx-auto" style="max-width: 600px;">
-                    Découvrez notre sélection de perruques les plus populaires, choisies par nos clientes
+                    Découvrez notre sélection de mèches les plus populaires, choisies par nos clientes
                 </p>
             </div>
 
@@ -144,11 +144,22 @@
                                 <div class="product-footer">
                                     <span class="price">{{ number_format($produit->prix_produit, 0, ',', ' ') }} F
                                         CFA</span>
-                                    <button class="btn-add-cart"><i class="bi bi-bag-plus me-2"></i>Ajouter</button>
+                                    @if ($produit->stock_produit > 0)
+                                        <button class="btn-add-cart"
+                                            onclick="addToCart(
+                                            '{{ $produit->id_produit }}',
+                                            '{{ $produit->nom_produit }}',
+                                            '{{ $produit->prix_produit }}',
+                                            '{{ $produit->image_produit }}'
+                                        )">
+                                            <i class="bi bi-bag-plus me-2"></i> Ajouter
+                                        </button>
+                                    @else
+                                        <button disabled class="btn btn-secondary">Rupture de stock</button>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        </>
                     </div>
                 @endforeach
             </div>
@@ -167,11 +178,11 @@
                 <h2>Notre équipe est à votre écoute</h2>
                 <p>
                     Nos experts sont disponibles pour vous conseiller et vous accompagner dans
-                    le choix de la perruque parfaite qui sublimera votre style.
+                    le choix de la mèche parfaite qui sublimera votre style.
                 </p>
 
                 <div class="cta-buttons">
-                    <a href="#" class="btn-contact-main">
+                    <a href="{{ url('contact') }}" class="btn-contact-main">
                         Contactez-nous <i class="bi bi-arrow-right ms-2"></i>
                     </a>
                     <a href="tel:+41798376166" class="btn-phone-outline">
